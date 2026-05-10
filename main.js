@@ -1,5 +1,5 @@
 const calculator = {
-  stage: 2,
+  stage: "numInput",
   screen: [0],
   numbers: { first: 0, second: null },
   chosenOperator: null,
