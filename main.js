@@ -18,3 +18,13 @@ const calculator = {
     },
   },
 };
+
+const buttons = document.querySelector(".buttons");
+
+buttons.addEventListener("click", (e) => {
+  button = e.target.closest(".button");
+
+  if (!button) return;
+
+  console.log(button);
+});
