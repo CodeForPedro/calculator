@@ -19,6 +19,22 @@ const calculator = {
   },
 };
 
+function handleInput(type, value) {
+  switch (type) {
+    case "number":
+      break;
+
+    case "action":
+      break;
+
+    case "operator":
+      break;
+
+    default:
+      break;
+  }
+}
+
 const buttons = document.querySelector(".buttons");
 
 buttons.addEventListener("click", (e) => {
@@ -26,5 +42,10 @@ buttons.addEventListener("click", (e) => {
 
   if (!button) return;
 
-  console.log(button);
+  const value = button.dataset.value;
+  const type = button.dataset.value;
+
+  console.log(value);
+
+  handleInput(type, value);
 });
