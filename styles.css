@@ -92,3 +92,7 @@ body {
 .divide {
   margin-left: 4.55rem;
 }
+
+.button {
+  cursor: pointer;
+}
