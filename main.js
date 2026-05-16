@@ -80,7 +80,7 @@ buttons.addEventListener("click", (e) => {
         first = first.slice(0, first.length - 1);
         display.textContent = first;
       } else {
-        second = second.slice(0, first.length - 1);
+        second = second.slice(0, second.length - 1);
         display.textContent = second;
       }
     }
