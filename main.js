@@ -61,7 +61,6 @@ buttons.addEventListener("click", (e) => {
     }
     if (chosenOperator === null) {
       updateFirst(value);
-      stageTwo = true;
       console.log(first);
       console.log(chosenOperator);
     } else {
@@ -91,12 +90,17 @@ buttons.addEventListener("click", (e) => {
         first = String(+result.toFixed(3));
         second = "";
         display.textContent = Number(first);
+        stageTwo = true;
         chosenOperator = null;
       }
     }
   }
 
   if (type === "decimal") {
+    if (chosenOperator === null && stageTwo === true) {
+      clear();
+      return;
+    }
     if (chosenOperator === null) {
       if (!first.includes(".")) updateFirst(value);
       display.textContent = first;
