@@ -9,7 +9,7 @@ const operations = {
     return a * b;
   },
   divide: (a, b) => {
-    if (a || b === "0") {
+    if (a === 0 || b === 0) {
       clear();
       display.textContent = "No dividing by 0";
     } else {
@@ -56,8 +56,12 @@ buttons.addEventListener("click", (e) => {
   const type = button.dataset.type;
 
   if (type === "number") {
+    if (chosenOperator === null && stageTwo === true) {
+      clear();
+    }
     if (chosenOperator === null) {
       updateFirst(value);
+      stageTwo = true;
       console.log(first);
       console.log(chosenOperator);
     } else {
@@ -83,12 +87,8 @@ buttons.addEventListener("click", (e) => {
     }
     if (value === "equals") {
       if (first.length > 0 && second.length > 0) {
-        const result = operate(
-          operations[chosenOperator],
-          +first,
-          +second,
-        ).toFixed(3);
-        first = String(result);
+        const result = operate(operations[chosenOperator], +first, +second);
+        first = String(+result.toFixed(3));
         second = "";
         display.textContent = Number(first);
         chosenOperator = null;
@@ -108,6 +108,7 @@ buttons.addEventListener("click", (e) => {
 
   if (type === "operator") {
     if (first.length > 0 && second.length > 0) {
+      stageTwo = true;
       const result = operate(operations[chosenOperator], +first, +second);
       first = String(+result.toFixed(3));
       second = "";
