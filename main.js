@@ -9,7 +9,12 @@ const operations = {
     return a * b;
   },
   divide: (a, b) => {
-    return a / b;
+    if (a || b === "0") {
+      clear();
+      display.textContent = "No dividing by 0";
+    } else {
+      return a / b;
+    }
   },
 };
 
